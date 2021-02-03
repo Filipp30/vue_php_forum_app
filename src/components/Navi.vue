@@ -27,12 +27,14 @@ name: "Navi"
   align-items: center;
 }
 nav {
+  background-color: #141518;
   width:100%;
   display: flex;
   justify-content: space-around;
   height: 5vh;
 }
 nav a {
+  background-color: #141518;
   border: 2px solid maroon;
   border-radius: 5px;
   height: 25px;

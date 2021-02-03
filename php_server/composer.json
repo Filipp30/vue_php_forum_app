@@ -1,0 +1,30 @@
+{
+    "name": "vendor/php_server",
+    "description": "universal backend for JS async/await API",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Filipp G",
+            "email": "filipp-tts@outlook.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "^6.2",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "dompdf/dompdf": "^1.0",
+        "firebase/php-jwt": "^5.2",
+        "robmorgan/phinx": "^0.12.5",
+        "vlucas/phpdotenv": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "DbConnection\\": "components/",
+            "Authorization\\": "components/authorization/",
+            "Mailer\\": "components/mailer/",
+            "Pdf_Creator\\": "components/pdf_creator",
+            "Model\\": "models/",
+            "JwtToken\\": "components/authorization/"
+        }
+    }
+}

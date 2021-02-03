@@ -21,3 +21,10 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+#php_server
+*.idea
+*.vscode
+/vue/php_server/vendor
+/vue/php_server/composer.lock
+.env
