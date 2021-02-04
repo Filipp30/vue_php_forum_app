@@ -1,7 +1,8 @@
 <template>
-<div>
-  <h1>footer</h1>
-</div>
+<footer>
+  <span>Developed by Filipp Grigoruk</span>
+  <span> Vue / JavaScript - PHP - SCSS</span>
+</footer>
 </template>
 
 <script>

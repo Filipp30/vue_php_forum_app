@@ -55,7 +55,7 @@ class Router{
         $user->$funcName($data);
     }
 
-    // 1. Get URL from www/JS
+    // 1. Get URL from JS
     // 2. Create array witch Controller-Methode-Param
     // 3. Check if Controller-Methode exist
     // 4. JWT

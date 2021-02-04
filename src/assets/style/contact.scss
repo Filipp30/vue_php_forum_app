@@ -1,0 +1,26 @@
+@mixin section{
+  width:48%;
+  min-height: 80vh;
+  margin-top:1rem;
+  margin-bottom:1rem;
+  border: 1px solid rgba(0,0,2,0.8);
+  border-radius: 7px;
+  background-color:rgba(100, 100, 102, 0.600);
+}
+//#646466
+.contact{
+  display:flex;
+  color:white;
+  width:100%;
+  justify-content:space-between;
+
+  .content{
+    @include section();
+  }
+
+  .mail-form{
+    @include section();
+  }
+
+
+}
