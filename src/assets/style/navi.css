@@ -1,0 +1,40 @@
+.menubar {
+  height: 4vh;
+  position: sticky;
+  top: 2px;
+  bottom: 0;
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 2, 0.8);
+  border-radius: 7px;
+  background-color: #3D3D3F;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menubar nav {
+  background-color: #3D3D3F;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+}
+.menubar nav a {
+  background-color: #3D3D3F;
+  font-family: "MavenProRegular", sans-serif;
+  color: antiquewhite;
+  font-size: 20px;
+  padding: 5px;
+}
+.menubar nav a:hover {
+  color: white;
+  border: 1px solid rgba(0, 0, 2, 0.8);
+  border-radius: 7px;
+  background-color: #646466;
+}
+.menubar span {
+  font-size: 35px;
+  color: white;
+  font-family: Brush Script MT, Brush Script Std, cursive;
+}
+
+/*# sourceMappingURL=navi.css.map */
