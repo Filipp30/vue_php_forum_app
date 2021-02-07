@@ -1,0 +1,12 @@
+body main {
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+body main .contact {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=app.css.map */

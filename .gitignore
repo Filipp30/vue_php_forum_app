@@ -28,3 +28,4 @@ pnpm-debug.log*
 /vue/php_server/vendor
 /vue/php_server/composer.lock
 .env
+/php_server/vendor

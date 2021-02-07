@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
-      <h1>Home</h1>
-  </div>
-
+  <header>
+    <div class="banner_home"></div>
+    <Navi/>
+  </header>
 </template>
 
 <script>
@@ -16,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../assets/style/home-page/home.css";
+
+
+</style>

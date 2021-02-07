@@ -49,6 +49,7 @@ class Router{
     private function call_methode($controllerName,$funcName,$data=null){
         if (isset($_SERVER['CONTENT_TYPE'])){
             $data = $this->get_content();
+            $data = json_decode($data->body);
         }
         include_once (ROOT.'/controllers/'.$controllerName.'.php');
         $user = new $controllerName;
@@ -61,6 +62,11 @@ class Router{
     // 4. JWT
     // 5. Call Controller-Methode
     public function run(){
+
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+
         $uri = $this ->getUri();
         $uri_object = $this->setObject_from_uri($uri);
         $exist = $this->exist_controller_function($uri_object[0],$uri_object[1]);

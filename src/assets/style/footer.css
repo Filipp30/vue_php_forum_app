@@ -1,8 +1,7 @@
 footer {
   height: 2vh;
-  position: sticky;
   top: 0;
-  bottom: 2px;
+  margin-bottom: 3px;
   padding: 8px;
   border: 1px solid rgba(0, 0, 2, 0.8);
   border-radius: 7px;

@@ -1,5 +1,6 @@
+import axios from "axios";
 
-    const beginUrl = 'http://'+window.location.host+'/universal_backend/php_server/';
+const beginUrl = 'http://'+window.location.host+'/universal_backend/php_server/';
 
     async function getData(){
         let jwt = localStorage.getItem("jwt_user");
@@ -13,24 +14,24 @@
         console.log(res);
     }
 
-    async function sendMail(email,message){
-        let jwt = localStorage.getItem("jwt_user");
-        const body = {
-            email: email,
-            message: message,
-        };
-        let data = await fetch(
-            beginUrl +'mainController/send_mail/',{
-                method: 'POST',
-                headers: {
-                    'Authorization': jwt,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            });
-        let res = await data.json();
-        console.log(res);
-    }
+    // async function sendMail(email,message){
+    //     let jwt = localStorage.getItem("jwt_user");
+    //     const body = {
+    //         email: email,
+    //         message: message,
+    //     };
+    //     let data = await fetch(
+    //         beginUrl +'mainController/send_mail/',{
+    //             method: 'POST',
+    //             headers: {
+    //                 'Authorization': jwt,
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(body)
+    //         });
+    //     let res = await data.json();
+    //     console.log(res);
+    // }
 
     async function add_new_user_into_database(username,email,pass,first_name,last_name){
         let data = await fetch(
@@ -51,10 +52,6 @@
         console.log(res);
     }
 
-
-
-    //comment van Korneel :Bij de signIn_getJwt functie
-    // zou ik de username en password in een Basic authentication header steken
 
     async function signIn_getJwt(username,pass){
         let data = await fetch(beginUrl +'identityController/user_authentication/',{
@@ -84,12 +81,35 @@
     // signIn_getJwt('mitja','123');
 
     // sendMail('filipp-tts@outlook.com','Some text message for send witch mail');
-    getData();
+    // getData();
     // add_new_user_into_database(
     //     'mitja','mitja@some_qwer.com','123','mmm_name','mmm_name').then(
     //     ()=>{ console.log('function add_new_user_into_database FINISHED');}
     // );
 
 
+
+
+//  Axios  get jwt token
+// methods:{
+//     onSubmit(){
+//         this.send_success = false;
+//         axios.post('http://localhost/vue-php-project/php_server/identityController/user_authentication/', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body:JSON.stringify(this.form),
+//         }).then((res) => {
+//             console.log(res.data)
+//         })
+//             .catch((error) => {
+//                 console.log(error)
+//             }).finally(() => {
+//             this.send_success = true;
+//             console.log('Success')
+//         });
+//     }
+// },
 
 

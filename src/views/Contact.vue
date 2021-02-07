@@ -1,34 +1,30 @@
 <template>
-  <div class="contact">
-    <div class="content">
-      <h1>Content contact page</h1>
-    </div>
+    <header>
+      <div class="banner_contact"></div>
+      <Navi/>
+    </header>
+
     <div class="mail-form">
       <MailSendForm/>
     </div>
-
-  </div>
 </template>
 
 <script>
 
-import MailSendForm from '@/components/MailSendForm'
+import MailSendForm from '@/components/contact-page/MailSendForm'
+import Navi from "@/components/Navi";
 
 export default {
   name: 'Contact',
-  components: {
-  MailSendForm
-  },
-  data(){
-    return{
-      firstname: "",
-      lastname: "",
-      email: "",
-      message: ""
+    components: {
+      Navi,
+      MailSendForm
     }
-  },
-  mounted(){
+
 
   }
-}
 </script>
+
+<style lang="scss" scoped>
+@import "../assets/style/contact-page/contact.scss";
+</style>

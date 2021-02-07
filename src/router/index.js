@@ -11,17 +11,8 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue')
-  },
-  {
-    path: '/wagenpark-tarieven',
-    name: 'WagenparkTarieven',
-    component: () => import('../views/WagenparkTarieven.vue')
-  },
-  {
-    path: '/transport-bestellen',
-    name: 'TransportBestellen',
-    component: () => import('../views/TransportBestellen.vue')
-  },
+  }
+
 ]
 
 const router = createRouter({

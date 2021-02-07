@@ -8,15 +8,19 @@ class Authorization{
     private string $functionName;
     private string $jwt_authorization;
 
-    function __construct($controllerName,$functionName,$jwt_authorization){
+    function __construct($controllerName,$functionName,$jwt_authorization=null){
         $this->controllerName = $controllerName;
         $this->functionName = $functionName;
-        $this->jwt_authorization = $jwt_authorization;
+        if ($jwt_authorization !=null){
+            $this->jwt_authorization = $jwt_authorization;
+        }
+
     }
 
     function get_permission(): bool{
-        if($this->controllerName == 'identityController'
-            && ($this->functionName == 'user_authentication' || $this->functionName == 'user_registration')){
+        if(($this->controllerName == 'identityController'
+            && ($this->functionName == 'user_authentication' || $this->functionName == 'user_registration'))
+        ||$this->controllerName == 'mainController' && $this->functionName == 'send_mail'){
             return true;
         }else{
         try{
