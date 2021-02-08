@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Router{
     private function getUri(): string{
         if (!empty($_SERVER['REQUEST_URI'])){
@@ -62,11 +60,6 @@ class Router{
     // 4. JWT
     // 5. Call Controller-Methode
     public function run(){
-
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
-        header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
-
         $uri = $this ->getUri();
         $uri_object = $this->setObject_from_uri($uri);
         $exist = $this->exist_controller_function($uri_object[0],$uri_object[1]);

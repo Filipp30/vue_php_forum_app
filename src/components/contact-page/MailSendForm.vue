@@ -1,19 +1,18 @@
 <template>
-
   <section class="mailer">
     <div class="image"><h1>image or content</h1></div>
     <form @submit.prevent="onSubmit">
 
       <div class="user_input">
         <div class="first_last_name">
-          <input  type="text" v-model="first_name" placeholder="First Name">
-          <input id="lastname" type="text" v-model="last_name" placeholder="Last Name">
+          <input  type="text"  placeholder="First Name" v-model="form.first_name">
+          <input id="lastname" type="text" placeholder="Last Name" v-model="form.last_name">
         </div>
         <div class="email_subject">
-          <input id="email" type="email" v-model="email" placeholder="E-Mail">
-          <input id="subject" type="text" v-model="subject" placeholder="Subject">
+          <input id="email" type="email" placeholder="E-Mail" v-model="form.email">
+          <input id="subject" type="text" placeholder="Subject" v-model="form.subject" >
         </div>
-        <textarea name="" id="" cols="30" rows="10" v-model="message" placeholder="Your Message"/>
+        <textarea name="" id="" cols="30" rows="10" v-model="form.message" placeholder="Your Message"/>
       </div>
 
       <div class="btn-loader">
@@ -27,17 +26,17 @@
 
 <script>
 import Loader from '@/components/Loader'
-import axios from 'axios';
+// import axios from 'axios';
 export default {
 
 name: "MailSendForm",
   components:{
-    Loader,
+    Loader
   },
   data(){
     return{
       form:{
-        first_name:'',
+        first_name: '',
         last_name:'',
         email:'',
         subject:'',
@@ -46,20 +45,30 @@ name: "MailSendForm",
       send_success:true
     }
   },
+  watch: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  },
   methods:{
-      onSubmit(){
+    onSubmit(){
           this.send_success = false;
-          axios.post('http://localhost:80/vue-php-project/php_server/mainController/send_mail/', {
-          body:JSON.stringify(this.form)},{headers: {'Content-Type':'application/json'}})
-          .then((res) => {
-            console.log(res)
-          })
-          .catch((error) => {
-            console.log(error)
-          }).finally(() => {
-            this.send_success = true;
-            console.log('Finish function')
-          });
+          // axios.post('http://localhost/vue-php-project/php_server/mainController/send_mail/', {
+          //   body: JSON.stringify(this.form)
+          // }, {headers: {'Content-Type': 'application/json'}})
+          // .then((res) => {
+          //   console.log(res)
+          // })
+          // .catch((error) => {
+          //   console.log(error)
+          // }).finally(() => {
+          //   this.send_success = true;
+          //   console.log('Finish function')
+          // });
+          console.log(this.form.first_name+'  '+this.form.last_name)
+
       }
   }
 

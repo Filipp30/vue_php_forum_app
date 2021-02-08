@@ -112,4 +112,19 @@ const beginUrl = 'http://'+window.location.host+'/universal_backend/php_server/'
 //     }
 // },
 
-
+// methods:{
+//     onSubmit(){
+//         this.send_success = false;
+//         axios.post('http://localhost/vue-php-project/php_server/mainController/send_mail/', {
+//             body:JSON.stringify(this.form)},{headers: {'Content-Type':'application/json'}})
+//             .then((res) => {
+//                 console.log(res)
+//             })
+//             .catch((error) => {
+//                 console.log(error)
+//             }).finally(() => {
+//             this.send_success = true;
+//             console.log('Finish function')
+//         });
+//     }
+// }

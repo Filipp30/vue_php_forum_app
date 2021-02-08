@@ -13,7 +13,7 @@ class mainController {
 
     function send_mail($data){
         $mailer = new Mailer\Mailer();
-        $res = $mailer->send_mail($data->email,$data->message);
+        $res = $mailer->send_mail($data->email,$data->message,$data->subject);
         echo json_encode($res);
         exit;
     }
