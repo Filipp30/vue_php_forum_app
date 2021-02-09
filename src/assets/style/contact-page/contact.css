@@ -8,7 +8,13 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 25vh;
+  height: 100vh;
+}
+
+.mail-form {
+  width: 100%;
+  position: absolute;
+  margin-top: 11%;
 }
 
 /*# sourceMappingURL=contact.css.map */

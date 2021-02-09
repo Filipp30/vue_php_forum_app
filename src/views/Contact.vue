@@ -1,12 +1,17 @@
 <template>
+
     <header>
-      <div class="banner_contact"></div>
+      <div class="banner_contact">
+
+        <div class="mail-form">
+          <MailSendForm/>
+        </div>
+
+      </div>
       <Navi/>
     </header>
 
-    <div class="mail-form">
-      <MailSendForm/>
-    </div>
+
 </template>
 
 <script>

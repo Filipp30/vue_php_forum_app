@@ -1,20 +1,21 @@
 
 @mixin section(){
-  background-color:white;
+  background-color:rgba(0, 0, 0, 0.5);
   width: 500px;
   height: 450px;
   padding: 5px;
   box-shadow: 10px 10px 16px 2px rgba(0,0,0,0.55);
+  color: white;
+
 }
-
-
 .mailer{
   height: 75vh;
   display: flex;
   justify-content: space-evenly;
-  width: 90%;
+  width: 100%;
   margin: auto;
   align-items:center;
+
 
   .image{
     @include section();
@@ -28,14 +29,34 @@
 
     .btn-loader{
       max-height:35px;
-      max-width: 35px;
-      height: 35px;
       margin-bottom: 20px;
       margin-left: 10px;
+      display: flex;
+
 
       button{
-        height: 35px;
-        width: 80px;
+        border-radius: 5px;
+        background: #ffffff;
+        border-color: #232323;
+        color: #232323;
+        font-size: 12px;
+        padding: 4px 24px;
+        font-weight: bold;
+      }
+      button:hover{
+        border-radius: 5px;
+        background: transparent;
+        border-color: #ffffff;
+        color: #ffffff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      p{
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 20%;
       }
     }
   }
@@ -47,34 +68,76 @@
     justify-content: space-around;
 
     .first_last_name{
+
       display: flex;
       justify-content: space-between;
     }
     .email_subject{
+
       display: flex;
       justify-content: space-between;
     }
     input{
+      color: white;
+      background-color: transparent;
       width: 40%;
       height: 30px;
       border:none;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid white;
     }
     textarea{
+      color: white;
+      background-color: transparent;
       border:none;
-      border-bottom: 1px solid black;
-      border-top: 1px solid black;
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
+
     }
+
   }
 }
+.input_error{
+
+    color: white;
+    background-color: transparent;
+    width: 40%;
+    height: 30px;
+    border:none;
+    border-bottom: 2px solid red;
+
+
+}
+
+
+
+
 
 @media screen and (max-width: 1200px) {
-
   .mailer{
-
     .image{
       display: none;
     }
   }
-
+}
+@media screen and (max-width: 590px) {
+  .user_input{
+    .first_last_name{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      input{
+        width: 80%;
+      }
+    }
+    .email_subject{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      input{
+        width: 80%;
+      }
+    }
+  }
 }

@@ -2,37 +2,57 @@
   height: 75vh;
   display: flex;
   justify-content: space-evenly;
-  width: 90%;
+  width: 100%;
   margin: auto;
   align-items: center;
 }
 .mailer .image {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   width: 500px;
   height: 450px;
   padding: 5px;
   box-shadow: 10px 10px 16px 2px rgba(0, 0, 0, 0.55);
+  color: white;
 }
 .mailer form {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   width: 500px;
   height: 450px;
   padding: 5px;
   box-shadow: 10px 10px 16px 2px rgba(0, 0, 0, 0.55);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .mailer form .btn-loader {
   max-height: 35px;
-  max-width: 35px;
-  height: 35px;
   margin-bottom: 20px;
   margin-left: 10px;
+  display: flex;
 }
 .mailer form .btn-loader button {
-  height: 35px;
-  width: 80px;
+  border-radius: 5px;
+  background: #ffffff;
+  border-color: #232323;
+  color: #232323;
+  font-size: 12px;
+  padding: 4px 24px;
+  font-weight: bold;
+}
+.mailer form .btn-loader button:hover {
+  border-radius: 5px;
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.mailer form .btn-loader p {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 20%;
 }
 .mailer .user_input {
   height: 100%;
@@ -49,20 +69,53 @@
   justify-content: space-between;
 }
 .mailer .user_input input {
+  color: white;
+  background-color: transparent;
   width: 40%;
   height: 30px;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 .mailer .user_input textarea {
+  color: white;
+  background-color: transparent;
   border: none;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
+.input_error {
+  color: white;
+  background-color: transparent;
+  width: 40%;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid red;
 }
 
 @media screen and (max-width: 1200px) {
   .mailer .image {
     display: none;
+  }
+}
+@media screen and (max-width: 590px) {
+  .user_input .first_last_name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user_input .first_last_name input {
+    width: 80%;
+  }
+  .user_input .email_subject {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user_input .email_subject input {
+    width: 80%;
   }
 }
 
