@@ -1,37 +1,35 @@
-.mailer {
-  height: 75vh;
+header {
+  height: 100vh;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   margin: auto;
   align-items: center;
+  background-image: url("contact_page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.mailer .image {
+header form {
   background-color: rgba(0, 0, 0, 0.5);
-  width: 500px;
-  height: 450px;
+  width: 65%;
+  height: 400px;
   padding: 5px;
-  box-shadow: 10px 10px 16px 2px rgba(0, 0, 0, 0.55);
-  color: white;
-}
-.mailer form {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 500px;
-  height: 450px;
-  padding: 5px;
+  margin-top: 120px;
   box-shadow: 10px 10px 16px 2px rgba(0, 0, 0, 0.55);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.mailer form .btn-loader {
-  max-height: 35px;
-  margin-bottom: 20px;
+header form .btn-loader {
+  height: 100px;
   margin-left: 10px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.mailer form .btn-loader button {
+header form .btn-loader button {
   border-radius: 5px;
   background: #ffffff;
   border-color: #232323;
@@ -39,8 +37,9 @@
   font-size: 12px;
   padding: 4px 24px;
   font-weight: bold;
+  height: 30px;
 }
-.mailer form .btn-loader button:hover {
+header form .btn-loader button:hover {
   border-radius: 5px;
   background: transparent;
   border-color: #ffffff;
@@ -48,27 +47,28 @@
   font-weight: bold;
   cursor: pointer;
 }
-.mailer form .btn-loader p {
+header form .btn-loader p {
   color: red;
   font-size: 16px;
   font-weight: bold;
-  margin-left: 20%;
+  margin: 0;
 }
-.mailer .user_input {
+header .user_input {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.mailer .user_input .first_last_name {
+header .user_input .first_last_name {
   display: flex;
   justify-content: space-between;
 }
-.mailer .user_input .email_subject {
+header .user_input .email_subject {
   display: flex;
   justify-content: space-between;
 }
-.mailer .user_input input {
+header .user_input input {
+  outline: none;
   color: white;
   background-color: transparent;
   width: 40%;
@@ -76,21 +76,12 @@
   border: none;
   border-bottom: 1px solid white;
 }
-.mailer .user_input textarea {
+header .user_input textarea {
+  outline: none;
   color: white;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid white;
-  border-top: 1px solid white;
-}
-
-.input_error {
-  color: white;
-  background-color: transparent;
-  width: 40%;
-  height: 30px;
-  border: none;
-  border-bottom: 2px solid red;
 }
 
 @media screen and (max-width: 1200px) {

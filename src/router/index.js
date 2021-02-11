@@ -11,7 +11,12 @@ const routes = [
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue')
-  }
+  },
+  {
+    path: '/forum',
+    name: 'Forum',
+    component: () => import('../views/Forum.vue')
+  },
 
 ]
 

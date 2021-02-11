@@ -21,15 +21,16 @@ export default {
 }
 .lds-dual-ring {
   display: inline-block;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;  margin: 0;
+
 }
 .lds-dual-ring:after {
-  content: " ";
+  content: "";
   display: block;
   width: 35px;
   height: 35px;
-  /*margin-bottom: 30px;*/
+  margin: 0;
 
   border-radius: 50%;
   border: 6px solid #1408ee;

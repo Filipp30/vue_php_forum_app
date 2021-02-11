@@ -10,8 +10,7 @@ use Swift_TransportException;
 
 class Mailer{
 
-    public function send_mail($mail_adres,$message_text,$subject): bool{
-
+    public function send_mail($fullname,$mail,$subject,$mes): bool{
             // Create the Transport
             $transport = (new Swift_SmtpTransport($_ENV['MAIL_HOST'], $_ENV['MAIL_PORT']))
                 ->setUsername($_ENV['MAIL_USERNAME'])
@@ -23,8 +22,8 @@ class Mailer{
             // Create a message
             $message = (new Swift_Message('No-reply'))
                 ->setFrom([$_ENV['MAIL_FROM_ADDRESS'] => 'Admin'])
-                ->setTo([$mail_adres])
-                ->setBody($subject);
+                ->setTo(['filipp-tts@outlook.com'])
+                ->setBody($fullname .'--' . $mail . '--' .$subject."--".$mes);
             // Attach the generated PDF from earlier)
             //            ->attach(Swift_Attachment::fromPath('pdf_user/file.pdf'))
             ;

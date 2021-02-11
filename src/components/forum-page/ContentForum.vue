@@ -1,12 +1,12 @@
 <template>
-<footer>
-  <h1>Footer</h1>
-</footer>
+<div>
+  <h1>forum content</h1>
+</div>
 </template>
 
 <script>
 export default {
-name: "Footer"
+  name: "forum_content"
 }
 </script>
 

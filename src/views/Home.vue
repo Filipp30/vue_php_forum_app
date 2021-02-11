@@ -1,7 +1,5 @@
 <template>
   <header>
-    <div class="banner_home"></div>
-    <Navi/>
   </header>
 </template>
 
@@ -19,6 +17,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/style/home-page/home.css";
-
-
 </style>
