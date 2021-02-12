@@ -1,0 +1,23 @@
+.all_items {
+  border: 2px solid black;
+  padding: 5px;
+  width: 100%;
+}
+.all_items h3 {
+  margin: 0;
+}
+.all_items .article {
+  border: 2px solid red;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  background-color: darkgrey;
+  display: flex;
+  flex-direction: column;
+}
+.all_items .article div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=all_items.css.map */

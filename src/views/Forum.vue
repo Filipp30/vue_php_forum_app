@@ -1,24 +1,44 @@
 <template>
-    <header>
+    <header v-bind:class="{show_content: loading}">
     </header>
-  <content-forum/>
+  <main>
+    <All_Items v-bind:all_articles="all_articles"/>
+  </main>
+
 </template>
 
 <script>
-import ContentForum from '@/components/forum-page/ContentForum'
+import All_Items from '@/components/forum-page/All_Items'
 export default {
   name: "Forum",
   components:{
-    ContentForum
+    All_Items
+  },
+  data(){
+    return{
+      all_articles:[],
+      loading:true
+    }
+  },
+  mounted() {
+    // setTimeout(()=>{
+      fetch('https://jsonplaceholder.typicode.com/comments')
+          .then(response => response.json())
+          .then(json => {this.all_articles = json})
+          // this.loading=true;
+    // },1500)
   },
   methods:{
-
 
   }
 
 }
 </script>
 
-<style scoped>
-@import "../assets/style/forum-page/forum.css";
+<style type="scss" scoped>
+@import "../assets/style/forum-page/forum.scss";
+@import "../assets/style/forum-page/all_items.css";
+.show_content{
+  height: 30vh;
+}
 </style>

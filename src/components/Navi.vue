@@ -3,7 +3,7 @@
     <h1>Company name</h1>
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link v-on:click="$emit('on_forum_click')" to="/forum">Forum</router-link>|
+      <router-link to="/forum" v-on:click="$emit('on_forum_click')">Forum</router-link>|
       <router-link to="">Add Question</router-link>|
       <router-link to="">Users</router-link>|
       <router-link to="">example_3</router-link>|
