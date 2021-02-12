@@ -5,7 +5,7 @@
 class mainController {
 
     function get_all_users(){
-        $model = new Model\mainModel();
+        $model = new Model\userModel();
         $result = $model->get_all_users();
         echo json_encode($result);
         exit;

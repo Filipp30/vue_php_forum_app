@@ -3,6 +3,8 @@
 
 namespace Model;
 use DbConnection\DbConnection;
+use PDO;
+
 class ForumModel{
 
     function add_article($title,$author,$description,$date_time_create,$thema,){
@@ -14,6 +16,14 @@ class ForumModel{
         $query=$pdo->prepare($sql);
         return $result = $query->execute(
             [$title,$author,$description,$date_time_create,$thema]);
+    }
+    function get_all_articles(){
+        $db_connection = new DbConnection();
+        $pdo = $db_connection->get_db();
+        $sql = "SELECT * FROM forum_articles";
+        $query=$pdo->prepare($sql);
+        $query->execute();
+        return $result= $query->fetchAll(PDO::FETCH_OBJ);
     }
 
 
