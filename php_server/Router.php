@@ -33,6 +33,7 @@ class Router{
                 echo json_encode('Function not exist !');
                 return false;
             }else{
+                echo json_encode('Function exist !');
                 return true;
             }
         }
@@ -64,7 +65,8 @@ class Router{
         $uri_object = $this->setObject_from_uri($uri);
         $exist = $this->exist_controller_function($uri_object[0],$uri_object[1]);
         if ($exist == true){
-            $permission = $this->methode_permission($uri_object[0],$uri_object[1],$_SERVER['HTTP_AUTHORIZATION']);
+//            $permission = $this->methode_permission($uri_object[0],$uri_object[1],$_SERVER['HTTP_AUTHORIZATION']);
+            $permission = true;
             if ($permission == true){
                 $this->call_methode($uri_object[0],$uri_object[1],$uri_object[2]);
             }else{

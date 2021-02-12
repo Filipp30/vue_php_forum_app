@@ -17,7 +17,8 @@ class ForumModel{
         return $result = $query->execute(
             [$title,$author,$description,$date_time_create,$thema]);
     }
-    function get_all_articles(){
+    public function get_all_articles(){
+        echo json_encode('calling model!');
         $db_connection = new DbConnection();
         $pdo = $db_connection->get_db();
         $sql = "SELECT * FROM forum_articles";

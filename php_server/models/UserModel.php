@@ -3,7 +3,7 @@
 namespace Model;
 use DbConnection\DbConnection;
 use PDO;
-class userModel{
+class UserModel{
 
     public function get_all_users(): array{
         $db_connection = new DbConnection();

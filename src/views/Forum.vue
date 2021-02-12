@@ -9,6 +9,7 @@
 
 <script>
 import All_Items from '@/components/forum-page/All_Items'
+import axios from "axios";
 export default {
   name: "Forum",
   components:{
@@ -21,12 +22,12 @@ export default {
     }
   },
   mounted() {
-    // setTimeout(()=>{
-      fetch('https://jsonplaceholder.typicode.com/comments')
-          .then(response => response.json())
-          .then(json => {this.all_articles = json})
-          // this.loading=true;
-    // },1500)
+      axios.get('http://localhost/vue-php-project/php_server/ForumController/get_all_articles',{
+        headers:{'Content-Type':'application/json'}
+      })
+    .then(function (response){
+      console.log(response)
+    })
   },
   methods:{
 
