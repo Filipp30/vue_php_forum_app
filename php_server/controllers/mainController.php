@@ -4,13 +4,6 @@
 
 class mainController {
 
-    function get_all_users(){
-        $model = new Model\UserModel();
-        $result = $model->get_all_users();
-        echo json_encode($result);
-        exit;
-    }
-
     function send_mail($data){
         $mailer = new Mailer\Mailer();
         $res = $mailer->send_mail($data->full_name,$data->email,$data->subject,$data->message);

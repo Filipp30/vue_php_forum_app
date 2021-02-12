@@ -1,10 +1,9 @@
 <?php
 
 
-class ForumController{
+class forumController{
 
-    function get_all_articles(){
-        echo json_encode('controller ->model!');
+    function get_all_articles($data=null){
         $model = new Model\ForumModel();
         $result = $model->get_all_articles();
         echo json_encode($result);
