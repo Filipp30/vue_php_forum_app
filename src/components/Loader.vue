@@ -1,7 +1,6 @@
 <template>
   <div class="waiting">
     <div class="lds-dual-ring"></div>
-    <h4>Sending...</h4>
   </div>
 
 </template>
@@ -16,9 +15,6 @@ export default {
 .waiting{
   display: flex;
 }
-.waiting h4{
-  margin-left: 20px;
-}
 .lds-dual-ring {
   display: inline-block;
   width: 50px;
@@ -31,7 +27,6 @@ export default {
   width: 35px;
   height: 35px;
   margin: 0;
-
   border-radius: 50%;
   border: 6px solid #1408ee;
   border-color: #1408ee transparent #1408ee transparent;

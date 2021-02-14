@@ -17,6 +17,11 @@ const routes = [
     name: 'Forum',
     component: () => import('../views/Forum.vue')
   },
+  {
+    path: '/add-question',
+    name: 'Add-Question',
+    component: () => import('../views/Add-Question.vue')
+  }
 
 ]
 

@@ -1,13 +1,14 @@
 <template>
-<div>Add new Question</div>
+<AddQuestionForm/>
 </template>
 
 <script>
+
+import AddQuestionForm from "@/components/AddQuestionForm";
 export default {
-name: "Add-Question"
+name: "Add-Question",
+  components:{
+  AddQuestionForm
+  }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,9 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import '@/assets/style/components/navi.scss';
-import '@/assets/style/components/normalize.css';
-
+import '@/assets/style/normalize.css';
 createApp(App).use(router).mount('#app')
 
 

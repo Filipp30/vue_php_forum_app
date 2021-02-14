@@ -33,7 +33,6 @@ class Router{
                 echo json_encode('Function not exist !');
                 return false;
             }else{
-                echo json_encode('Function exist !');
                 return true;
             }
         }

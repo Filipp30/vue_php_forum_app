@@ -4,7 +4,7 @@
 
 <script>
 
-import MailSendForm from '@/components/contact-page/MailSendForm'
+import MailSendForm from '@/components/MailSendForm'
 
 export default {
   name: 'Contact',
@@ -13,7 +13,3 @@ export default {
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

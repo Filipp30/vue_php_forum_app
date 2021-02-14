@@ -1,20 +1,18 @@
 <template>
-  <header>
-  </header>
+<!--<Header/>-->
+  <h1>Home Page</h1>
 </template>
 
 <script>
-// @ is an alias to /src
 
+// import Header from "@/components/Header";
 
 export default {
+
+
   name: 'Home',
   components: {
-
+    // Header
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import "../assets/style/home-page/home.css";
-</style>
