@@ -141,8 +141,7 @@ header{
   width: 100%;
   margin: auto;
   align-items:center;
-  background-color: maroon;
-  //background-image: url('src/views/background_contact_page.jpg');
+  background-image: url('../assets/style/images/background_MailSendForm.jpg');
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;

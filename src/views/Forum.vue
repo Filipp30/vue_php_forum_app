@@ -45,21 +45,20 @@ export default {
 
 <style lang="scss" scoped>
 
-//header{
-//  //background-image: url("baner-forum.jpg");
-//  background-color: #232323;
-//  background-size: cover;
-//  background-repeat: no-repeat;
-//  background-position: bottom;
-//  background-attachment: fixed;
-//  width: 100%;
-//  height: 100vh;
-//
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: center;
-//  align-items: center;
-//}
+header{
+  background-image: url('../assets/style/images/baner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 main{
   width: 90%;
   height: 73vh;

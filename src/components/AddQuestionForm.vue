@@ -130,7 +130,7 @@ header{
   width: 100%;
   margin: auto;
   align-items:center;
-  //background-image: url('background_MailSendForm.jpg');
+  background-image: url('../assets/style/images/background_MailSendForm.jpg');
   background-color: cornflowerblue;
   background-size:cover;
   background-position: center;
