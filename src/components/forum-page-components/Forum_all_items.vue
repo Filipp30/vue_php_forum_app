@@ -1,6 +1,7 @@
 <template>
   <section class="all_items">
-      <article class="article" v-for="item in all_articles" v-bind:key="item.id">
+      <article class="article" v-for="(item,index) in all_articles" v-bind:key="item.id"
+                               v-on:click="$emit('get_comments',item.id,index)">
         <h3>Title : <span>{{item.title}}</span></h3>
         <div>
           <p>Author: <span>{{item.author}}</span></p>
@@ -9,7 +10,6 @@
           <p>Comments: <span>{{item.comments_count}}</span></p>
         </div>
       </article>
-
   </section>
 </template>
 
@@ -17,7 +17,6 @@
 export default {
   name: "forum_content",
   props:['all_articles'],
-
 }
 </script>
 <style lang="scss" scoped>

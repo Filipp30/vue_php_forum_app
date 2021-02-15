@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Loader from '@/components/Loader'
+import Loader from '@/components/Loader_mail_form'
 import axios from 'axios';
 export default {
 
