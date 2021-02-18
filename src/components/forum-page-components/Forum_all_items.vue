@@ -22,23 +22,29 @@ export default {
 <style lang="scss" scoped>
 
 .all_items {
+  color: green;
   border: 2px solid black;
   margin: auto;
   h3{
     margin: 0;
   }
   .article{
-    border: 2px solid red;
+    border: 2px solid green;
     height: 40px;
     padding: 2px;
-    margin:auto;
-    background-color: darkgrey;
+    margin: 2px 2px;
+    background-color: black;
     display: flex;
     flex-direction: column;
     div{
       display: flex;
       justify-content: space-around;
     }
+  }
+  .article:hover{
+    cursor: pointer;
+    font-size:17px ;
+
   }
 }
 

@@ -17,6 +17,12 @@ class forumController{
         echo json_encode($result);
         exit;
     }
+    function get_comments($data){
+        $model = new Model\ForumModel();
+        $result = $model->get_comments(intval($data[0]));
+        echo json_encode($result);
+        exit;
+    }
 
 
 }

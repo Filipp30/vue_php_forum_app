@@ -1,7 +1,6 @@
 <template>
   <header>
-<!--    <div class="image"><h1>image or content</h1></div>-->
-    <form @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit" >
       <div class="user_input" >
             <div class="first_last_name" >
                 <input id="firstname" type="text" placeholder="First Name" v-bind:style="{'border-bottom':error.empty_firstname===true? error.input_border_red:error.input_border_withe}" v-model="form.first_name">
@@ -185,6 +184,63 @@ header{
   }
 
   .user_input{
+    //input:-webkit-autofill,
+    //input:-webkit-autofill:hover,
+    //input:-webkit-autofill:focus,
+    //input:-webkit-autofill:active  {
+    //  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    //}
+    //input:-webkit-autofill {
+    //  -webkit-background-clip: text;
+    //}
+    //input:-webkit-autofill {
+    //  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    //  -webkit-animation-name: autofill;
+    //  -webkit-animation-fill-mode: both;
+    //  0%,100% {
+    //    color: #666;
+    //    background: transparent;
+    //  }
+    //}
+    //input:-internal-autofill-selected {
+    //  background-color: transparent;
+    //}
+
+
+    //input:-webkit-autofill,
+    //input:-webkit-autofill:hover,
+    //input:-webkit-autofill:focus,
+    //textarea:-webkit-autofill,
+    //textarea:-webkit-autofill:hover,
+    //textarea:-webkit-autofill:focus,
+    //select:-webkit-autofill,
+    //select:-webkit-autofill:hover,
+    //select:-webkit-autofill:focus {
+    //  border: 1px solid green;
+    //  -webkit-text-fill-color: green;
+    //  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    //  transition: background-color 5000s ease-in-out 0s;
+    //}
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active,
+    input:-webkit-autofill:valid,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus
+    {
+      -webkit-transition-delay: 99999s;
+      -webkit-text-fill-color: #d7d8ce;
+      transition-delay: 9999s;
+
+    }
+
+
+
+
+
 
     height: 100%;
     display: flex;

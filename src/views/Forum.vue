@@ -7,10 +7,14 @@
         v-if="all_articles.length && show_article_on_focus === false"
         v-bind:all_articles="all_articles"
         v-on:get_comments="getComment" />
-    <Article_on_focus
-        v-if="show_article_on_focus"
-        v-bind:article_on_focus="article_on_focus"
-        v-bind:comments="comments"/>
+      <Article_on_focus
+          v-if="show_article_on_focus"
+          v-bind:article_on_focus="article_on_focus"
+          v-bind:comments="comments"
+          v-bind:id="article_on_focus.id"
+          v-on:add_comment="add_comment"
+          v-on:back_to_all_articles="show_article_on_focus=false"/>
+
   </main>
 
 </template>
@@ -35,11 +39,13 @@ export default {
       loader:true,
       show_article_on_focus:false,
       article_on_focus:'',
-      comments:[]
+      comments:[],
+
     }
   },
+
   created() {
-    axios.get('http://localhost/vue-php-project/php_server/ForumController/get_all_articles', {
+    axios.get('http://localhost/vue-php-project/php_server/ForumController/get_all_articles/', {
       headers: {'Content-Type': 'application/json'}
     }).then(function (response) {
     return response.data;
@@ -56,11 +62,25 @@ export default {
     getComment(id,key){
       this.loader = true;
       this.article_on_focus = this.all_articles[key]
-      setTimeout(()=>{
-        this.comments = {author:'sommeName',comment:'Somme comment bla bla bla bla'};
+      axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'+id, {
+        headers: {}
+      }).then(function (response) {
+        return response.data;
+      }).then((data)=>{
+        this.comments = data;
+        console.log(data)
         this.loader = false;
         this.show_article_on_focus=true;
-      },1500)
+      }).catch((error)=>{
+        console.log(error);
+      });
+    },
+    add_comment(id,form){
+      setTimeout(()=>{
+      // this.getComment(id,5)
+      },1500);
+    console.log('id:'+id);
+    console.log(form)
     }
   }
 
@@ -77,7 +97,6 @@ header{
   background-attachment: fixed;
   width: 100%;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,12 +104,18 @@ header{
 }
 main{
   width: 90%;
-  height: 73vh;
   margin: auto;
   margin-top: 2vh;
+
 }
 .resume_page{
-  height: 25vh;
-  transition: ease 2s;
+  height: 20vh;
+  transition: ease 300ms;
+
 }
+//.art_comment{
+//  background-color: #1408ee;
+//  transition: ease 5s;
+//}
+
 </style>

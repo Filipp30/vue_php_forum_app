@@ -1,5 +1,4 @@
 <template>
-
     <Navi/>
     <router-view/>
 </template>
