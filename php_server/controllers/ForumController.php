@@ -23,6 +23,13 @@ class forumController{
         echo json_encode($result);
         exit;
     }
+    function add_comment($data){
+        $model = new Model\ForumModel();
+        $result = $model->add_comment(
+            intval($data->user_id),strval($data->author),intval($data->article_id),strval($data->comment));
+        echo json_encode($result);
+        exit;
+    }
 
 
 }

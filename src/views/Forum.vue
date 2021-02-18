@@ -11,12 +11,8 @@
           v-if="show_article_on_focus"
           v-bind:article_on_focus="article_on_focus"
           v-bind:comments="comments"
-          v-bind:id="article_on_focus.id"
-          v-on:add_comment="add_comment"
-          v-on:back_to_all_articles="show_article_on_focus=false"/>
-
+      />
   </main>
-
 </template>
 
 <script>
@@ -61,9 +57,9 @@ export default {
   methods:{
     getComment(id,key){
       this.loader = true;
-      this.article_on_focus = this.all_articles[key]
+      this.article_on_focus = this.all_articles[key];
       axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'+id, {
-        headers: {}
+        header: {}
       }).then(function (response) {
         return response.data;
       }).then((data)=>{
@@ -75,13 +71,6 @@ export default {
         console.log(error);
       });
     },
-    add_comment(id,form){
-      setTimeout(()=>{
-      // this.getComment(id,5)
-      },1500);
-    console.log('id:'+id);
-    console.log(form)
-    }
   }
 
 }

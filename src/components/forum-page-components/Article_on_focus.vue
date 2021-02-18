@@ -51,6 +51,7 @@
 
 <script>
 import Loader_forum_page from "@/components/forum-page-components/Loader_forum_page";
+import axios from "axios";
 export default {
 
 
@@ -66,13 +67,14 @@ name: "article_on_focus",
         username:'',
         comment:''
       },
+      // comm:this.comments,
       error:{
         empty_username:false,
         empty_comment:false,
         input_border_green:'1px solid green',
         input_border_red:'1px solid red',
       },
-      wait:false
+      wait:false,
     }
   },
   watch:{
@@ -89,9 +91,30 @@ name: "article_on_focus",
         return false;
       }else{
         this.wait = true;
-        this.$emit('add_comment',this.article_on_focus.id,this.form);
+        axios.all([
+          axios.post("http://localhost/vue-php-project/php_server/ForumController/add_comment/",{
+            body:JSON.stringify({
+              user_id:33,
+              author:this.form.username,
+              article_id: this.article_on_focus.id,
+              comment: this.form.comment,
+            }),
+            header:{
+              'Content-Type': 'application/json'}
+            }),
+            axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'
+                +this.article_on_focus.id, {
+              header: {}
+            })
+        ]).then(axios.spread((post,get)=>{
+          console.log(post);
+          console.log(get.data);
+          // this.comm = get.data;
+          this.wait = false;
+        })).catch((error)=>{
+          console.log(error)
+        })
       }
-
     },
     check_inputs(){
       if (this.form.comment === ''){
@@ -100,8 +123,10 @@ name: "article_on_focus",
       if (this.form.username === ''){
         this.error.empty_username = true
       }
-    }
-  }
+    },
+
+  },
+
 
 
 }

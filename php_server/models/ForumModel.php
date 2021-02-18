@@ -36,4 +36,15 @@ class ForumModel{
         $query->execute();
         return $result = $query->fetchAll(PDO::FETCH_OBJ);
     }
+    function add_comment($user_id,$author,$article_id,$comment){
+        $db_connection = new DbConnection();
+        $pdo = $db_connection->get_db();
+        $sql = "INSERT INTO article_comment (user_id,author,article_id,comment) VALUES (?,?,?,?)";
+        $query=$pdo->prepare($sql);
+        $query->bindParam(1,$user_id,PDO::PARAM_INT);
+        $query->bindParam(2,$author,PDO::PARAM_STR);
+        $query->bindParam(3,$article_id,PDO::PARAM_INT);
+        $query->bindParam(4,$comment,PDO::PARAM_STR);
+        return $result = $query->execute();
+    }
 }
