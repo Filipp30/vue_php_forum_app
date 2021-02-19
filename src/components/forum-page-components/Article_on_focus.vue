@@ -1,7 +1,5 @@
 <template>
-
   <div class="article">
-
     <article>
       <h1>Title: {{article_on_focus.title}}</h1>
       <div>
@@ -16,8 +14,8 @@
 
     <section class="article__comments">
       <h3>Comments:</h3>
-      <div v-if="comments.length">
-        <section class="article__comment"  v-for="item in comments" v-bind:key="item.author" >
+      <div v-if="comments_update.length">
+        <section class="article__comment"  v-for="item in comments_update" v-bind:key="item.id" >
           <h5>Author: {{item.author}} --- Datum_Time : {{item.date_time}}</h5>
           <h4>{{item.comment}}</h4>
         </section>
@@ -43,17 +41,17 @@
 
     <nav>
       <button v-on:click="new_comment_field=true"> Wraith - Comment</button>
-      <button v-on:click="$emit('back_to_all_articles')" >Back to all articles</button>
+      <button v-on:click="$emit('btn_back')" >Back to all articles</button>
     </nav>
 
   </div>
+
 </template>
 
 <script>
 import Loader_forum_page from "@/components/forum-page-components/Loader_forum_page";
 import axios from "axios";
 export default {
-
 
 name: "article_on_focus",
   components:{
@@ -65,9 +63,8 @@ name: "article_on_focus",
       new_comment_field:false,
       form:{
         username:'',
-        comment:''
+        comment:'',
       },
-      // comm:this.comments,
       error:{
         empty_username:false,
         empty_comment:false,
@@ -75,7 +72,21 @@ name: "article_on_focus",
         input_border_red:'1px solid red',
       },
       wait:false,
+      updated:''
     }
+  },
+  computed:{
+      comments_update(){
+        if(this.updated){
+          console.log('updated:')
+          console.log(this.updated)
+          return this.updated;
+        }else{
+          console.log('comments:')
+          console.log(this.comments)
+          return this.comments;
+        }
+      }
   },
   watch:{
     form: { deep:true, handler(){
@@ -107,12 +118,18 @@ name: "article_on_focus",
               header: {}
             })
         ]).then(axios.spread((post,get)=>{
-          console.log(post);
+          console.log('Post comment:'+post);
           console.log(get.data);
-          // this.comm = get.data;
+          this.updated = get.data;
           this.wait = false;
+          this.new_comment_field=false;
+          this.form.comment='';
+          this.form.username='';
         })).catch((error)=>{
           console.log(error)
+          this.wait = false;
+          this.form.comment='ERROR:'+error;
+          this.form.username='ERROR pleas contact developer';
         })
       }
     },
@@ -123,12 +140,8 @@ name: "article_on_focus",
       if (this.form.username === ''){
         this.error.empty_username = true
       }
-    },
-
+    }
   },
-
-
-
 }
 </script>
 

@@ -11,6 +11,7 @@
           v-if="show_article_on_focus"
           v-bind:article_on_focus="article_on_focus"
           v-bind:comments="comments"
+          v-on:btn_back="show_article_on_focus=false"
       />
   </main>
 </template>

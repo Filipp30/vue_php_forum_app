@@ -9,7 +9,14 @@ class ForumModel{
     function get_all_articles(){
         $db_connection = new DbConnection();
         $pdo = $db_connection->get_db();
-        $sql = "SELECT * FROM forum_articles";
+        $sql = "SELECT forum_articles.id,
+        forum_articles.title,forum_articles.author,forum_articles.theme,forum_articles.date_time_create,
+        forum_articles.description,forum_articles.date_time_update,
+        count(article_comment.article_id) as comments_count
+        FROM
+        forum_articles LEFT JOIN article_comment on forum_articles.id = article_comment.article_id
+        GROUP BY forum_articles.id,
+        forum_articles.title,forum_articles.author,forum_articles.theme,forum_articles.date_time_create";
         $query=$pdo->prepare($sql);
         $query->execute();
         return $result= $query->fetchAll(PDO::FETCH_OBJ);
@@ -18,21 +25,22 @@ class ForumModel{
         $db_connection = new DbConnection();
         $pdo = $db_connection->get_db();
         $sql = "INSERT INTO forum_articles
-        (`title`,`author`,`id_author`,`description`,`theme`,`comments_count`)
-        VALUES (?,?,?,?,?,?)";
+        (`title`,`author`,`id_author`,`description`,`theme`)
+        VALUES (?,?,?,?,?)";
         $query=$pdo->prepare($sql);
         return $result = $query->execute(
-            [$title,$author,$id_user,$description,$theme,333]);
+            [$title,$author,$id_user,$description,$theme]);
     }
     function get_comments($article_id){
         $db_connection = new DbConnection();
         $pdo = $db_connection->get_db();
-        $sql = "SELECT article_comment.* FROM article_comment
+        $sql = "SELECT article_comment.author,article_comment.comment,article_comment.date_time 
+                FROM article_comment
                 INNER JOIN forum_articles 
                 ON forum_articles.id = article_comment.article_id
-                WHERE forum_articles.id = :article_id";
+                WHERE forum_articles.id = ?";
         $query=$pdo->prepare($sql);
-        $query->bindParam(':article_id',$article_id,PDO::PARAM_INT,10);
+        $query->bindParam(1,$article_id,PDO::PARAM_INT);
         $query->execute();
         return $result = $query->fetchAll(PDO::FETCH_OBJ);
     }
