@@ -102,7 +102,7 @@ name: "article_on_focus",
         return false;
       }else{
         this.wait = true;
-        axios.all([
+
           axios.post("http://localhost/vue-php-project/php_server/ForumController/add_comment/",{
             body:JSON.stringify({
               user_id:33,
@@ -112,25 +112,25 @@ name: "article_on_focus",
             }),
             header:{
               'Content-Type': 'application/json'}
-            }),
-            axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'
-                +this.article_on_focus.id, {
-              header: {}
-            })
-        ]).then(axios.spread((post,get)=>{
+            }).then(((post)=>{
           console.log('Post comment:'+post);
-          console.log(get.data);
-          this.updated = get.data;
-          this.wait = false;
-          this.new_comment_field=false;
-          this.form.comment='';
-          this.form.username='';
         })).catch((error)=>{
           console.log(error)
           this.wait = false;
           this.form.comment='ERROR:'+error;
           this.form.username='ERROR pleas contact developer';
-        })
+        }).then(()=>{
+            axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'
+                +this.article_on_focus.id, {
+              header: {}
+            }).then((get)=>{
+              this.updated = get.data;
+              this.wait = false;
+              this.new_comment_field=false;
+              this.form.comment='';
+              this.form.username='';
+            })
+          });
       }
     },
     check_inputs(){

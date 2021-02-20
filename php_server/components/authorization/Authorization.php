@@ -6,27 +6,28 @@ class Authorization{
 
     private string $controllerName;
     private string $functionName;
-    private string $jwt_authorization;
 
-    function __construct($controllerName,$functionName,$jwt_authorization=null){
+    function __construct($controllerName,$functionName){
         $this->controllerName = $controllerName;
         $this->functionName = $functionName;
-        if ($jwt_authorization !=null){
-            $this->jwt_authorization = $jwt_authorization;
-        }
-
     }
 
     function get_permission(): bool{
-        if(($this->controllerName == 'identityController'
-            && ($this->functionName == 'user_authentication' || $this->functionName == 'user_registration'))
-        ||$this->controllerName == 'mainController' && $this->functionName == 'send_mail'){
+        $allowedOrigins = include_once('allowedOrigins.php');
+        $allowed_controllers = $allowedOrigins['Controllers'];
+        $allowed_methods = $allowedOrigins['Methods'];
+        if(in_array($this->controllerName, $allowed_controllers) &&
+            in_array($this->functionName, $allowed_methods) ){
             return true;
         }else{
         try{
-            $user_jwt_decoded = JWT::decode($this->jwt_authorization,$_ENV['JWT_SECRET_KEY'], array('HS256'));
-            $user_id = $user_jwt_decoded->id;
-            return true;
+                if (isset($_SERVER['HTTP_AUTHORIZATION'])){
+                    $jwt_authorization = $_SERVER['HTTP_AUTHORIZATION'];
+                    $user_jwt_decoded = JWT::decode($jwt_authorization,$_ENV['JWT_SECRET_KEY'], array('HS256'));
+                    $user_id = $user_jwt_decoded->id;
+                    return true;
+                }else{ return false; }
+
             }catch (\Exception $e){
                 if ($this->handleException($e)){
                     return true;

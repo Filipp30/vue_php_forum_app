@@ -1,8 +1,8 @@
 
 #RewriteEngine on
 #Header set Access-Control-Allow-Origin "*"
-#RewriteCond %{HTTP:Authorization} ^(.*)
-#RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 #RewriteRule ^(.*) run.php
 
 
