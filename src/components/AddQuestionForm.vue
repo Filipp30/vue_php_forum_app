@@ -59,6 +59,7 @@ export default {
   },
   methods:{
     onSubmit(){
+      const beginUrl = 'http://'+window.location.host+'/php_server';
       this.check_inputs();
       if (this.error.empty_title||this.error.empty_author||
           this.error.empty_theme||
@@ -66,7 +67,7 @@ export default {
         return false;
       }else{
         this.error.loader = true;
-        axios.post('http://localhost/vue-php-project/php_server/ForumController/add_new_article', {
+        axios.post(beginUrl+'/ForumController/add_new_article', {
           body: JSON.stringify(this.form)
         }, {headers: {'Content-Type': 'application/json'}})
             .then((res) => {
