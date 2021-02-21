@@ -47,8 +47,8 @@ export default {
   },
 
   created() {
-    const beginUrl = 'http://'+window.location.host+'/php_server';
-    axios.get(beginUrl+'/ForumController/get_all_articles/', {
+    // const beginUrl = 'http://'+window.location.host+'/php_server';
+    axios.get('http://localhost/vue-php-project/php_server/ForumController/get_all_articles/', {
       headers: {'Content-Type': 'application/json'}
     }).then(function (response) {
     return response.data;

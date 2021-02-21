@@ -67,7 +67,7 @@ name: "MailSendForm",
   },
   methods:{
     onSubmit(){
-      const beginUrl = 'http://'+window.location.host+'/php_server';
+      // const beginUrl = 'http://'+window.location.host+'/php_server';
       this.check_inputs();
       if (this.error.empty_firstname||this.error.empty_lastname||
           this.error.empty_email||this.error.empty_subject||
@@ -75,7 +75,7 @@ name: "MailSendForm",
           return false;
       }else{
         this.error.loader = true;
-        axios.post(beginUrl+'/mainController/send_mail/', {
+        axios.post('http://localhost/vue-php-project/php_server/mainController/send_mail/', {
           body: JSON.stringify(this.form)
         }, {headers: {'Content-Type': 'application/json'}})
             .then((res) => {

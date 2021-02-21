@@ -1,7 +1,7 @@
 <?php
 
 
-class forumController{
+class ForumController{
 
     function get_all_articles($data=null){
         $model = new Model\ForumModel();
