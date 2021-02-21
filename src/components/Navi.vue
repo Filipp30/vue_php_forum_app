@@ -5,8 +5,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/forum" v-on:click="$emit('on_forum_click')">Forum</router-link>|
       <router-link to="/add-question">Add Question</router-link>|
-      <router-link to="">Users</router-link>|
-      <router-link to="">example_3</router-link>|
+      <router-link to="/user">Users</router-link>|
       <router-link to="/contact">Contact</router-link>
     </nav>
   </div>
@@ -39,6 +38,7 @@ name: "Navi"
     color: white;
   }
   nav{
+
     max-width: 90%;
     display: flex;
     align-items: center;

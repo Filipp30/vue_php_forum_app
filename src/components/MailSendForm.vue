@@ -184,44 +184,6 @@ header{
   }
 
   .user_input{
-    //input:-webkit-autofill,
-    //input:-webkit-autofill:hover,
-    //input:-webkit-autofill:focus,
-    //input:-webkit-autofill:active  {
-    //  -webkit-box-shadow: 0 0 0 30px transparent inset !important;
-    //}
-    //input:-webkit-autofill {
-    //  -webkit-background-clip: text;
-    //}
-    //input:-webkit-autofill {
-    //  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
-    //  -webkit-animation-name: autofill;
-    //  -webkit-animation-fill-mode: both;
-    //  0%,100% {
-    //    color: #666;
-    //    background: transparent;
-    //  }
-    //}
-    //input:-internal-autofill-selected {
-    //  background-color: transparent;
-    //}
-
-
-    //input:-webkit-autofill,
-    //input:-webkit-autofill:hover,
-    //input:-webkit-autofill:focus,
-    //textarea:-webkit-autofill,
-    //textarea:-webkit-autofill:hover,
-    //textarea:-webkit-autofill:focus,
-    //select:-webkit-autofill,
-    //select:-webkit-autofill:hover,
-    //select:-webkit-autofill:focus {
-    //  border: 1px solid green;
-    //  -webkit-text-fill-color: green;
-    //  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
-    //  transition: background-color 5000s ease-in-out 0s;
-    //}
-
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
@@ -236,12 +198,6 @@ header{
       transition-delay: 9999s;
 
     }
-
-
-
-
-
-
     height: 100%;
     display: flex;
     flex-direction: column;

@@ -1,19 +1,25 @@
 <template>
-    <header v-bind:class="{resume_page: resume_page}">
-      <Loader_forum_page v-if="loader"/>
-    </header>
-  <main>
-    <Forum_all_items
-        v-if="all_articles.length && show_article_on_focus === false"
-        v-bind:all_articles="all_articles"
-        v-on:get_comments="getComment" />
-      <Article_on_focus
-          v-if="show_article_on_focus"
-          v-bind:article_on_focus="article_on_focus"
-          v-bind:comments="comments"
-          v-on:btn_back="show_article_on_focus=false"
-      />
-  </main>
+  <header>
+
+    <main>
+
+      <article>
+        <Loader_forum_page v-if="loader"/>
+        <Forum_all_items
+            v-if="all_articles.length && show_article_on_focus === false"
+            v-bind:all_articles="all_articles"
+            v-on:get_comments="getComment" />
+        <Article_on_focus
+            v-if="show_article_on_focus"
+            v-bind:article_on_focus="article_on_focus"
+            v-bind:comments="comments"
+            v-on:btn_back="show_article_on_focus=false"
+        />
+      </article>
+    </main>
+  </header>
+
+
 </template>
 
 <script>
@@ -32,7 +38,6 @@ export default {
   data(){
     return{
       all_articles:[],
-      resume_page:false,
       loader:true,
       show_article_on_focus:false,
       article_on_focus:'',
@@ -49,7 +54,6 @@ export default {
     }).then((data)=>{
       this.all_articles = data;
       console.log(data)
-      this.resume_page = true;
       this.loader = false;
     }).catch((error)=>{
       console.log(error);
@@ -78,34 +82,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-header{
-  background-image: url('../assets/style/images/baner.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-attachment: fixed;
-  width: 100%;
-  height: 100vh;
+header {
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-main{
-  width: 90%;
+  justify-content: space-evenly;
+  width: 100%;
   margin: auto;
-  margin-top: 2vh;
+  align-items: center;
+  background-color: #72928b;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  main {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    background-color: #264653;
+    padding-top: 6rem;
+
+    article{
+      width: 95%;
+      margin: auto;
+    }
+
+  }
 
 }
-.resume_page{
-  height: 20vh;
-  transition: ease 300ms;
-
-}
-//.art_comment{
-//  background-color: #1408ee;
-//  transition: ease 5s;
-//}
-
 </style>

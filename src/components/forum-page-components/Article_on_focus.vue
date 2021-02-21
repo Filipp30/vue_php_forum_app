@@ -1,14 +1,14 @@
 <template>
   <div class="article">
     <article>
-      <h1>Title: {{article_on_focus.title}}</h1>
+      <h1>Title: <span>{{article_on_focus.title}}</span></h1>
       <div>
-        <p>Author: {{article_on_focus.author}}</p>
-        <p>Datum when create article: {{article_on_focus.date_time_create}}</p>
-        <p>Datum when latest updated: {{article_on_focus.date_time_update}} </p>
-        <p>Theme: {{article_on_focus.theme}}</p>
-        <p>Comments count:{{article_on_focus.comments_count}}</p>
-        <h3>Description :{{article_on_focus.description}}</h3>
+        <p>Author: <span>{{article_on_focus.author}}</span></p>
+        <p>Datum create article: <span>{{article_on_focus.date_time_create}}</span></p>
+        <p>Datum latest updated: <span>{{article_on_focus.date_time_update}} </span></p>
+        <p>Theme: <span>{{article_on_focus.theme}}</span></p>
+        <p>Comments count:<span>{{article_on_focus.comments_count}}</span></p>
+        <p>Description :<span>{{article_on_focus.description}}</span></p>
       </div>
     </article>
 
@@ -16,8 +16,8 @@
       <h3>Comments:</h3>
       <div v-if="comments_update.length">
         <section class="article__comment"  v-for="item in comments_update" v-bind:key="item.id" >
-          <h5>Author: {{item.author}} --- Datum_Time : {{item.date_time}}</h5>
-          <h4>{{item.comment}}</h4>
+          <p>Author:<span> {{item.author}}</span> --- Datum_Time :<span> {{item.date_time}}</span></p>
+          <p><span>{{item.comment}}</span></p>
         </section>
       </div>
       <h4 v-else>No-Comments</h4>
@@ -31,10 +31,10 @@
         <div class="form" v-if="wait === false" >
           <input type="text" placeholder="Username"
                  v-model="form.username"
-                 v-bind:style="{'border':error.empty_username===true?error.input_border_red:error.input_border_green}">
+                 v-bind:style="{'border-bottom':error.empty_username===true?error.input_border_red:error.input_border_green}">
           <textarea cols="30" rows="10" placeholder="Your Comment"
                     v-model="form.comment"
-                    v-bind:style="{'border':error.empty_comment===true?error.input_border_red:error.input_border_green}"/>
+                    v-bind:style="{'border-bottom':error.empty_comment===true?error.input_border_red:error.input_border_green}"/>
         </div>
           <Loader_forum_page v-if="wait" />
     </section>
@@ -68,7 +68,7 @@ name: "article_on_focus",
       error:{
         empty_username:false,
         empty_comment:false,
-        input_border_green:'1px solid green',
+        input_border_green:'1px solid white',
         input_border_red:'1px solid red',
       },
       wait:false,
@@ -146,21 +146,35 @@ name: "article_on_focus",
 </script>
 
 <style lang="scss" scoped>
+
 .article{
   margin-bottom: 30px;
-  background-color: black;
-  color: green;
+  background-color:#264653;
+
+
+  article{
+    border-radius: 16px;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 2px;
+    height: 100%;
+  }
+  span{
+    color: #72928b;
+  }
 
   &__comment{
-    border: 1px solid green;
-    padding: 2px;
-    margin: 2px 2px;
+    border-radius: 16px;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 5px 2px;
   }
   &__add_new_comment{
     height: 150px;
     background-color: black;
-    color: green;
-    border: 1px solid green;
+    //color: green;
+    border-radius: 16px;
+    border: 1px solid white;
     padding: 5px;
     margin: 2px 2px;
     display: flex;
@@ -168,24 +182,41 @@ name: "article_on_focus",
     justify-content: space-around;
 
     .form{
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active,
+      input:-webkit-autofill:valid,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus
+      {
+        -webkit-transition-delay: 99999s;
+        -webkit-text-fill-color: #d7d8ce;
+        transition-delay: 9999s;
+
+      }
       height: 70%;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
 
       input{
-        background-color: black;
-        border: 1px solid green;
-        color: green;
-        width: 300px;
-        height:25px;
+        outline: none;
+        color: white;
+        background-color: transparent;
+        width: 40%;
+        height: 30px;
+        border:none;
+        border-bottom: 1px solid white;
       }
       textarea{
-        background-color: black;
-        border: 1px solid green;
-        color: green;
-        width: 70%;
-        height: 60%;
+        outline: none;
+        color: white;
+        background-color: transparent;
+        border:none;
+        border-bottom: 1px solid white;
+        //border-top: 1px solid white;
       }
     }
   }
@@ -195,17 +226,22 @@ name: "article_on_focus",
     justify-content: space-between;
   }
   button{
-    width: 45%;
-    color: green;
-    background-color: black;
-    border: 1px solid green;
-    font-size: 18px;
+    border-radius: 5px;
+    background: #ffffff;
+    border-color: #232323;
+    color: #232323;
+    font-size: 12px;
+    padding: 4px 24px;
     font-weight: bold;
+    height: 30px;
   }
   button:hover{
-    color: black;
-    background-color: green;
-    border: 1px solid black;
+    border-radius: 5px;
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
 
