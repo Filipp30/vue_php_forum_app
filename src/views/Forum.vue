@@ -47,8 +47,8 @@ export default {
   },
 
   created() {
-    // const beginUrl = 'http://'+window.location.host+'/php_server';
-    axios.get('http://localhost/vue-php-project/php_server/ForumController/get_all_articles/', {
+
+    axios.get('http://stuworld.space/php_server/forumController/get_all_articles/', {
       headers: {'Content-Type': 'application/json'}
     }).then(function (response) {
     return response.data;
@@ -64,7 +64,7 @@ export default {
     getComment(id,key){
       this.loader = true;
       this.article_on_focus = this.all_articles[key];
-      axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'+id, {
+      axios.get('http://stuworld.space/php_server/forumController/get_comments/'+id, {
         header: {}
       }).then(function (response) {
         return response.data;

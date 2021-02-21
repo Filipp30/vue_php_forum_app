@@ -97,14 +97,13 @@ name: "article_on_focus",
   },
   methods:{
     add_comment(){
-      // const beginUrl = 'http://'+window.location.host+'/php_server';
       this.check_inputs();
       if(this.error.empty_username || this.error.empty_comment){
         return false;
       }else{
         this.wait = true;
 
-          axios.post("http://localhost/vue-php-project/php_server/ForumController/add_comment/",{
+          axios.post("http://stuworld.space/php_server/forumController/add_comment/",{
             body:JSON.stringify({
               user_id:33,
               author:this.form.username,
@@ -121,7 +120,7 @@ name: "article_on_focus",
           this.form.comment='ERROR:'+error;
           this.form.username='ERROR pleas contact developer';
         }).then(()=>{
-            axios.get('http://localhost/vue-php-project/php_server/ForumController/get_comments/'
+            axios.get('http://stuworld.space/php_server/forumController/get_comments/'
                 +this.article_on_focus.id, {
               header: {}
             }).then((get)=>{
